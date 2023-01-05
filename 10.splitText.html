@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- bootstrap -->
+  <link rel="stylesheet" href="./css/bootstrap.css">
+  <!-- google font -->
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+  <title>10.splitText</title>
+  <style>
+    body {
+      height: 100vh;
+      font-family: 'Press Start 2P', cursive;
+      overflow-x: hidden;
+    }
+
+    section {
+      color: white;
+      height: 100%;
+      background: #000;
+      border-bottom: 1px solid #fff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    section:nth-child(1) {
+      background: url(./splitImg/ff5.jpg) no-repeat center/cover;
+    }
+
+
+    section:nth-child(2) {
+      background: linear-gradient(0deg, black, transparent), url(./splitImg/wu.jpg) no-repeat center/cover;
+    }
+
+    #text01 {
+      width: 70%;
+      height: 250px;
+      font-size: 1.5rem;
+      padding: 1rem;
+      background: #070d7f;
+      border: 5px solid #eee;
+      border-radius: 10px;
+
+      position: absolute;
+      bottom: 5%;
+      left: 0;
+      right: 0;
+      margin: auto;
+      z-index: 0;
+    }
+
+    #text02 {
+      width: 100%;
+      height: 100%;
+      color: rgb(255, 225, 0);
+      text-align: center;
+      font-size: 8rem;
+      font-family: '標楷體';
+      font-weight: 500;
+      display: flex;
+      text-shadow: 0 0 10px white;
+
+      /* display: none; */
+      justify-content: space-evenly;
+      /* 平均分配空間 */
+
+      align-items: flex-end;
+
+    }
+
+    #text03 {
+      font-size: 8rem;
+      /* display: none; */
+    }
+  </style>
+</head>
+
+<body>
+  <section>
+    <div id="text01">
+      Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ut impedit nulla, voluptas sequi magni minus autem harum
+      ullam fugit saepe laboriosam aperiam consectetur!
+    </div>
+  </section>
+
+  <section>
+    <div id="text02">咒術迴戰</div>
+  </section>
+
+
+  <section>
+    <div id="text03">東京都立咒術高專</div>
+  </section>
+
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.js'></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- - gsap 主程式 -->
+  <script src="/Gsap/gsap.js"></script>
+  <!-- - gsap plugins，必須在此主程式之後 -->
+  <script src="/Gsap/ScrollTrigger.js"></script>
+
+  <script src="./Gsap/SplitText.min.js"></script>
+
+  <script>
+    // ! 註冊套件
+    gsap.registerPlugin(ScrollTrigger, SplitText)
+
+    // - SplitText 將文字拆開
+    // - 可以拆成三種類型 都是陣列 物件的一種 分別是 chars(一個一個字),words(以空白分隔),lines(一段一段)
+    const text01 = new SplitText('#text01', {
+      type: 'chars,words,lines',
+    })
+
+    gsap.from(text01.chars, {
+      opacity: 0, //透明度 0
+      stagger: 0.1, // 交錯
+      ease: 'steps(1)' // 打字速率
+    })
+
+    // -text02 ============================================================================
+
+    const text02 = new SplitText('#text02', {
+      type: 'chars'
+    })
+
+    gsap.from('#text02', {
+      display: 'flex'
+    })
+
+    gsap.from(text02.chars, {
+      margin: '0 -300',
+    })
+
+    gsap.from(text02.chars, {
+      scrollTrigger: {
+        trigger: '#text02',
+        start: 'top 5%',
+        end: 'bottom 5%',
+      },
+      scale: 20,
+      filter: 'blur(50px)',
+      duration: 3,
+      opacity: 0,
+      stagger: {
+        each: 1,
+        from: 'random'
+      }
+    })
+
+    gsap.from('#text02', {
+      background: 'white',
+      filter: 'blur(50px)',
+      backdropFilter: 'blur(100px)',
+      duration: 3,
+    })
+
+    // -text03 ============================================================================
+    const text03 = new SplitText('#text03', {
+      type: 'chars'
+    })
+
+
+    const tl = gsap.timeline()
+
+    tl
+      .from(text03.chars, {
+        stagger: 0.5,
+        duration: 0.3,
+        opacity: 0,
+        x: 100,
+        scale: 100,
+        rotayion: 3600,
+      })
+      .to(text03.chars, {
+        x: 'random(-20000,20000)',
+        y: 'random(-20000,20000)',
+        delay: 2,
+        duration: 1,
+        ease: 'power3.inout',
+        onComplete() {
+          text03.revert() //狀態恢復
+        }
+      })
+
+  </script>
+</body>
+
+</html>
