@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./css/bootstrap.css">
+  <title>09.gsap_scrollTrigger_nebula</title>
+  <style>
+    body {
+      height: 100vh;
+      background: black;
+      /* overflow: hidden; */
+    }
+  </style>
+</head>
+
+<body>
+  <!-- background -->
+  <section id="bg" class="position-fixed" style="z-index: -1;">
+    <!-- 要比原本的圖還大 body還大才不會有問題 -->
+    <div style="width: 130%; height: 130%;">
+      <img src="./planet/nebula.jpg" class="w-100">
+    </div>
+  </section>
+
+  <!-- section01 空的容器 -->
+  <section id="section01" class="vh-100"></section>
+
+  <!-- section02 文字 + 圖片 -->
+  <section class="py-5" id="section02">
+    <div class="container text-white">
+      <h1 class="main-title text-center">ScrollTrigger</h1>
+      <!-- row01 -->
+      <div class="row my-5">
+        <div class="col-2">
+          <img class="img01" src="https://picsum.photos/200/200/?random=6">
+        </div>
+        <div class="col-10">
+          <div class="text01">
+            點點我覺得那個有了自身崗位你是訂單幫你一家鄉民們，工作人員，禮品適合記錄來自實力地圖足夠，繼續想起另一個一件思維醫學全家，一定會遊客，頁面貢獻，構成股權代理簡直能源看法多多技術擁有，伺服器責任編輯美國出現多少充分，考察球員心情民主電話下午不行被人殺手春天。點點我覺得那個有了自身崗位你是訂單幫你一家鄉民們，工作人員，禮品適合記錄來自實力地圖足夠，繼續想起另一個一件思維醫學全家，一定會遊客，頁面貢獻，構成股權代理簡直能源看法多多技術擁有，伺服器責任編輯美國出現多少充分，考察球員心情民主電話下午不行被人殺手春天。點點我覺得那個有了自身崗位你是訂單幫你一家鄉民們，工作人員，禮品適合記錄來自實力地圖足夠，繼續想起另一個一件思維醫學全家。
+          </div>
+        </div>
+      </div>
+      <!-- row02 -->
+      <div class="row my-5">
+        <div class="col-10">
+          <div class="text01">
+            點點我覺得那個有了自身崗位你是訂單幫你一家鄉民們，工作人員，禮品適合記錄來自實力地圖足夠，繼續想起另一個一件思維醫學全家，一定會遊客，頁面貢獻，構成股權代理簡直能源看法多多技術擁有，伺服器責任編輯美國出現多少充分，考察球員心情民主電話下午不行被人殺手春天。點點我覺得那個有了自身崗位你是訂單幫你一家鄉民們，工作人員，禮品適合記錄來自實力地圖足夠，繼續想起另一個一件思維醫學全家，一定會遊客，頁面貢獻，構成股權代理簡直能源看法多多技術擁有，伺服器責任編輯美國出現多少充分，考察球員心情民主電話下午不行被人殺手春天。點點我覺得那個有了自身崗位你是訂單幫你一家鄉民們，工作人員，禮品適合記錄來自實力地圖足夠，繼續想起另一個一件思維醫學全家。
+          </div>
+        </div>
+        <div class="col-2">
+          <img class="img02" src="https://picsum.photos/200/200/?random=7">
+        </div>
+      </div>
+      <!-- row03 -->
+      <div class="row my-5">
+        <div class="col-2">
+          <img class="img03" src="https://picsum.photos/200/200/?random=8">
+        </div>
+        <div class="col-10">
+          <div class="text01">
+            點點我覺得那個有了自身崗位你是訂單幫你一家鄉民們，工作人員，禮品適合記錄來自實力地圖足夠，繼續想起另一個一件思維醫學全家，一定會遊客，頁面貢獻，構成股權代理簡直能源看法多多技術擁有，伺服器責任編輯美國出現多少充分，考察球員心情民主電話下午不行被人殺手春天。點點我覺得那個有了自身崗位你是訂單幫你一家鄉民們，工作人員，禮品適合記錄來自實力地圖足夠，繼續想起另一個一件思維醫學全家，一定會遊客，頁面貢獻，構成股權代理簡直能源看法多多技術擁有，伺服器責任編輯美國出現多少充分，考察球員心情民主電話下午不行被人殺手春天。點點我覺得那個有了自身崗位你是訂單幫你一家鄉民們，工作人員，禮品適合記錄來自實力地圖足夠，繼續想起另一個一件思維醫學全家。
+          </div>
+        </div>
+      </div>
+      <!-- row04 -->
+      <div class="row my-5">
+        <div class="col-10">
+          <div class="text01">
+            點點我覺得那個有了自身崗位你是訂單幫你一家鄉民們，工作人員，禮品適合記錄來自實力地圖足夠，繼續想起另一個一件思維醫學全家，一定會遊客，頁面貢獻，構成股權代理簡直能源看法多多技術擁有，伺服器責任編輯美國出現多少充分，考察球員心情民主電話下午不行被人殺手春天。點點我覺得那個有了自身崗位你是訂單幫你一家鄉民們，工作人員，禮品適合記錄來自實力地圖足夠，繼續想起另一個一件思維醫學全家，一定會遊客，頁面貢獻，構成股權代理簡直能源看法多多技術擁有，伺服器責任編輯美國出現多少充分，考察球員心情民主電話下午不行被人殺手春天。點點我覺得那個有了自身崗位你是訂單幫你一家鄉民們，工作人員，禮品適合記錄來自實力地圖足夠，繼續想起另一個一件思維醫學全家。
+          </div>
+        </div>
+        <div class="col-2">
+          <img class="img04" src="https://picsum.photos/200/200/?random=9">
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.js'></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- - gsap 主程式 -->
+  <script src="/Gsap/gsap.js"></script>
+  <!-- - gsap plugins，必須在此主程式之後 -->
+  <script src="/Gsap/ScrollTrigger.js"></script>
+
+  <script>
+    // ! 註冊套件
+    gsap.registerPlugin(ScrollTrigger)
+
+    // - 對螢幕增加滑鼠的事件
+
+
+  </script>
+</body>
+
+</html>
